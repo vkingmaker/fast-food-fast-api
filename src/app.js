@@ -1,14 +1,8 @@
-// import express from 'express';
-var express = require('express');
-// import path from 'path';
-var path =require('path');
-// import logger from 'morgan';
-var logger = require('morgan');
-// import bodyParser from 'body-parser';
-var bodyParser = require('body-parser');
-// import routes from './routes';
-// var routes = require('./routes');
-var order = require('./order');
+import express from 'express';
+import path from 'path';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import order from './order';
 
 const app = express();
 app.disable('x-powered-by');
@@ -25,8 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
-// app.use('/', routes);
-app.use('/order', order);
+app.use('/v1/order', order);
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -44,5 +37,5 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     });
 });
 
-module.exports = app;
-// export default app;
+
+export default app;

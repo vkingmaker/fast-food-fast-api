@@ -1,6 +1,19 @@
-// import app from './app';
-var app = require('./app');
+'use strict';
 
-const { PORT = 3000 } = process.env;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`)); // eslint-disable-line no-console
-module.exports = app;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _app = require('./app');
+
+var _app2 = _interopRequireDefault(_app);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _process$env$PORT = process.env.PORT,
+    PORT = _process$env$PORT === undefined ? 3000 : _process$env$PORT;
+
+_app2.default.listen(PORT, function () {
+  return console.log('Listening on port ' + PORT);
+}); // eslint-disable-line no-console
+exports.default = _app2.default;

@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var order = require('./mock/db')();
+import express from 'express';
+const router = express.Router();
+
+let order = require('./mock/db')();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    // console.log(dbData);
     res.json(order);
 });
 
@@ -49,11 +49,7 @@ router.delete('/:id', function (req, res, next) {
     });
 });
 router.delete('/', function (req, res, next) {
-    // for(var id in order){
-    // order.splice(0,1);
-    // }
     order.filter(function (value, index) {
-        // order.pop();
         order.splice(0);
     });
     res.json({
@@ -61,4 +57,4 @@ router.delete('/', function (req, res, next) {
         order
     });
 });
-module.exports = router;
+export default router;
