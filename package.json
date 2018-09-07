@@ -41,14 +41,12 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "morgan": "^1.9.0",
-    "pug": "^2.0.0-beta11",
     "rimraf": "^2.6.2",
     "webpack": "^4.17.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.3",
-    "babel-jest": "^21.2.0",
     "babel-register": "^6.26.0",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
@@ -74,26 +72,17 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "plugins": [
-      "import",
-      "jest"
+      "import"
     ],
     "parserOptions": {
       "ecmaVersion": 2017,
       "sourceType": "module"
     },
     "env": {
-      "node": true,
-      "jest": true
+      "node": true
     },
     "extends": [
       "eslint:recommended"
-    ],
-    "rules": {
-      "jest/no-focused-tests": 2,
-      "jest/no-identical-title": 2
-    }
-  },
-  "jest": {
-    "testEnvironment": "node"
+    ]
   }
 }

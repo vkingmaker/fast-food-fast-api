@@ -4,18 +4,18 @@ const router = express.Router();
 let order = require('./mock/db')();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next)=>{
     res.json(order);
 });
 
-router.get('/:id', function (req, res, next) {
+router.get('/:id', (req, res, next)=> {
     var particularOrder = order.filter(function (value) {
         if (value.id === +req.params.id)
             return value;
     });
     res.json(particularOrder);
 });
-router.post('/', function (req, res, next) {
+router.post('/', (req, res, next)=>{
     var addedOrder = {};
     if (order.length) {
         req.body.id = order[order.length - 1].id + 1;
@@ -32,7 +32,7 @@ router.post('/', function (req, res, next) {
         addedOrder
     });
 });
-router.put('/:id', function (req, res, next) {
+router.put('/:id', (req, res, next)=> {
     let updatedOrder ={};
     order.splice(req.params.id - 1, 1, req.body);
     updatedOrder = req.body;
@@ -42,13 +42,13 @@ router.put('/:id', function (req, res, next) {
     });
 });
 
-router.delete('/:id', function (req, res, next) {
+router.delete('/:id', (req, res, next)=> {
     order.splice(req.params.id - 1, 1);
     res.json({
         "message": `Order Deleted Successfully id ${req.params.id}`
     });
 });
-router.delete('/', function (req, res, next) {
+router.delete('/', (req, res, next)=> {
     order.filter(function (value, index) {
         order.splice(0);
     });
